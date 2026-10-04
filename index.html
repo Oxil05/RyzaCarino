@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#120726">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Happy 21st Birthday, Ryza! 💜 | October 5, 2005</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Animated Canvas (Hearts, Sparkles, Purple Bokeh) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Floating Music Player Control -->
+  <div class="music-player-widget" id="music-widget">
+    <button class="music-btn" id="music-toggle-btn" title="Play romantic birthday melody for Ryza" aria-label="Toggle Background Music">
+      <div class="music-icon-wrap">
+        <svg class="icon-music" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+        <span class="music-waves" id="music-waves">
+          <span></span><span></span><span></span>
+        </span>
+      </div>
+      <span class="music-text" id="music-status-text">Ryza's Melody ♫</span>
+    </button>
+  </div>
+
+  <!-- Main Container -->
+  <main class="page-container">
+
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+      <div class="badge-pill">
+        <span class="badge-sparkle">✨</span>
+        <span class="badge-text">Celebrating 21 Beautiful Years • October 5, 2005</span>
+        <span class="badge-sparkle">✨</span>
+      </div>
+
+      <h1 class="hero-title">
+        Happy 21st Birthday, <br class="mobile-break">
+        <span class="gradient-text">Ryza Cariño</span> 💜
+      </h1>
+
+      <p class="hero-subtitle">
+        To my one and only, <strong>Ryza E. Cariño</strong>. Born on <strong>October 5, 2005</strong> — 21 years of grace, infectious laughter, and filling my world with the sweetest purple warmth.
+      </p>
+
+      <!-- Milestone Chips -->
+      <div class="milestone-badges">
+        <div class="milestone-chip">
+          <span>🎂</span> <strong>Turning 21</strong>
+        </div>
+        <div class="milestone-chip">
+          <span>🌸</span> <strong>Born Oct 5, 2005</strong>
+        </div>
+        <div class="milestone-chip">
+          <span>💑</span> <strong>3+ Years In Love</strong>
+        </div>
+        <div class="milestone-chip">
+          <span>🔮</span> <strong>Purple Paradise</strong>
+        </div>
+      </div>
+
+      <!-- Countdown / Celebration Timer -->
+      <div class="countdown-card" id="countdown-card">
+        <div class="countdown-header">
+          <span class="timer-dot"></span>
+          <span id="countdown-title">Counting Down to Ryza's 21st Birthday ✨</span>
+        </div>
+        <div class="countdown-grid" id="timer-grid">
+          <div class="time-block">
+            <span class="time-number" id="time-hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <span class="time-colon">:</span>
+          <div class="time-block">
+            <span class="time-number" id="time-mins">00</span>
+            <span class="time-label">Minutes</span>
+          </div>
+          <span class="time-colon">:</span>
+          <div class="time-block">
+            <span class="time-number" id="time-secs">00</span>
+            <span class="time-label">Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-note" id="countdown-note">Every single second brings us closer to celebrating you!</p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="hero-actions">
+        <a href="#letter-section" class="btn btn-primary">
+          <span>💌 Read My Letter</span>
+        </a>
+        <a href="#cake-section" class="btn btn-secondary">
+          <span>🎂 Make a 21st Wish</span>
+        </a>
+        <a href="#camera-section" class="btn btn-camera">
+          <span>📸 Smile Surprise</span>
+        </a>
+        <a href="#gallery-section" class="btn btn-outline">
+          <span>📸 Our Memories</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- INTERACTIVE LOVE LETTER SECTION -->
+    <section class="section-container" id="letter-section">
+      <div class="section-tag">From My Heart To Yours</div>
+      <h2 class="section-title">A Letter For Ryza 💌</h2>
+
+      <div class="envelope-wrapper">
+        <div class="envelope-card" id="envelope-trigger">
+          <div class="envelope-lid"></div>
+          <div class="envelope-seal">💜</div>
+          <div class="envelope-front">
+            <span class="envelope-hint">Click to Open Ryza's Birthday Letter ✨</span>
+          </div>
+        </div>
+
+        <div class="letter-paper" id="letter-content">
+          <div class="letter-decoration top-right">🌸</div>
+          <div class="letter-decoration bottom-left">💜</div>
+          
+          <h3 class="letter-salutation">My Dearest Ryza,</h3>
+          <div class="letter-body">
+            <p>
+              Happy 21st Birthday, my love! 💜
+            </p>
+            <p>
+              Twenty-one years ago today, on <strong>October 5, 2005</strong>, the universe gave the world its greatest treasure: <strong>Ryza E. Cariño</strong>. And out of all the billions of people on this earth, I am the luckiest guy alive to hold your hand, make you laugh, and call you mine.
+            </p>
+            <p>
+              Ever since you came into my life, everything turned brighter and so much more meaningful. Through 3+ wonderful years of memories — from wearing goofy yellow Pikachu hats together, to holding hands during our photo studio shoots, to sharing iced matcha coffees and long walks — every single moment with you is etched into my heart forever.
+            </p>
+            <p>
+              I know how much you love purple, and every time I see it, I think of you: gentle, rare, elegant, and deeply comforting. As you step into this exciting 21st chapter of your life, I promise to always stand by you, cheer for you, and love you more and more every single day.
+            </p>
+            <p>
+              May this year bring you endless blessings, pure happiness, and all the success your kind soul deserves. Happy Birthday, my beautiful girl!
+            </p>
+            <p class="letter-signature">
+              Forever & always yours,<br>
+              <strong>Your Loving Boyfriend 💜</strong>
+            </p>
+          </div>
+          <button class="btn btn-small btn-outline close-letter-btn" id="close-letter-btn">
+            Fold Letter ✉️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BIRTHDAY CAKE SECTION -->
+    <section class="section-container" id="cake-section">
+      <div class="section-tag">Interactive Celebration</div>
+      <h2 class="section-title">Blow Your 21st Birthday Candles! 🎂</h2>
+      <p class="section-subtitle">Close your eyes, make your deepest 21st wish, and click the candles below to blow them out!</p>
+
+      <div class="cake-stage">
+        <div class="cake-box" id="cake-interactive" role="button" tabindex="0" title="Click to blow out candles!">
+          
+          <!-- Candles on top with 21 badge -->
+          <div class="candles-row" id="candles-container">
+            <div class="candle">
+              <div class="flame" id="flame-1"></div>
+              <div class="candle-stick"></div>
+            </div>
+            <div class="candle center-candle">
+              <div class="flame" id="flame-2"></div>
+              <div class="candle-stick"></div>
+            </div>
+            <div class="candle">
+              <div class="flame" id="flame-3"></div>
+              <div class="candle-stick"></div>
+            </div>
+          </div>
+
+          <!-- Multi-tier Cake -->
+          <div class="cake-tier tier-top">
+            <div class="cake-milestone-text">21</div>
+            <div class="frosting-drips">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="tier-berries">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="cake-tier tier-middle">
+            <div class="cream-ribbon"></div>
+          </div>
+          <div class="cake-tier tier-bottom">
+            <div class="cake-plate"></div>
+          </div>
+        </div>
+
+        <!-- Wish Result Card (revealed after blowing) -->
+        <div class="wish-reveal-card" id="wish-reveal-card">
+          <div class="sparkle-ring">🎉</div>
+          <h3>✨ Happy 21st Birthday, Ryza! ✨</h3>
+          <p>
+            Your wish has flown straight up to the stars! May your 21st year be showered with boundless love, good health, unforgettable memories, and dreams turning into reality!
+          </p>
+          <button class="btn btn-small btn-primary" id="relight-btn">Relight Candles 🕯️</button>
+        </div>
+
+        <p class="cake-hint" id="cake-hint-text">👆 Tap the cake to blow the candles!</p>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SMILE CAMERA SURPRISE SECTION -->
+    <section class="section-container" id="camera-section">
+      <div class="section-tag">Interactive Secret Surprise</div>
+      <h2 class="section-title">Smile For Your Birthday Message! 📸✨</h2>
+      <p class="section-subtitle">
+        Your smile is the most beautiful thing in the world. Turn on the camera, give your biggest smile, and watch the secret message unlock!
+      </p>
+
+      <div class="camera-card-wrapper">
+        <div class="camera-preview-box" id="camera-preview-card">
+          <!-- Initial Placeholder / Start State -->
+          <div class="camera-placeholder-content" id="camera-start-view">
+            <div class="camera-icon-halo">📸</div>
+            <h3>I Want to See Your Smile, Ryza!</h3>
+            <p>Click below to start your camera. Once the AI sees you smiling, a sweet surprise message will flash onto the screen!</p>
+            <button class="btn btn-primary btn-camera-trigger" id="start-camera-btn">
+              <span>Turn On Camera & Smile 📸</span>
+            </button>
+            <div class="camera-quick-bypass">
+              <button class="text-link-btn" id="bypass-smile-btn">
+                <span>Can't use camera right now? Click to reveal message 💜</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Camera View (Displayed when camera is turned on) -->
+          <div class="camera-active-view" id="camera-active-view" style="display: none;">
+            <div class="video-container">
+              <video id="camera-video" autoplay playsinline webkit-playsinline muted></video>
+              <canvas id="camera-overlay-canvas"></canvas>
+              
+              <!-- Scanner HUD overlay -->
+              <div class="camera-hud-frame">
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner top-right"></div>
+                <div class="hud-corner bottom-left"></div>
+                <div class="hud-corner bottom-right"></div>
+                <div class="camera-live-badge">
+                  <span class="live-pulse"></span> LIVE
+                </div>
+              </div>
+            </div>
+
+            <!-- Detection Status & Smile Meter -->
+            <div class="smile-detector-status">
+              <div class="status-indicator-row">
+                <span class="status-emoji" id="smile-emoji">🔍</span>
+                <span class="status-label" id="smile-status-text">Starting AI face scanner...</span>
+              </div>
+              
+              <div class="meter-wrapper">
+                <div class="meter-label-row">
+                  <span class="meter-title">✨ Smile Intensity</span>
+                  <span class="meter-score" id="smile-percentage">0%</span>
+                </div>
+                <div class="meter-track">
+                  <div class="meter-fill" id="smile-meter-fill"></div>
+                </div>
+              </div>
+              
+              <p class="meter-instruction" id="smile-instruction">Waiting for Ryza's sweet smile... 😊</p>
+            </div>
+
+            <div class="camera-controls">
+              <button class="btn btn-small btn-outline" id="stop-camera-btn">Close Camera ✖</button>
+              <button class="btn btn-small btn-secondary" id="force-smile-btn">
+                <span>I'm Smiling! 😊 Reveal</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Camera Notice / Helpful Info -->
+          <div class="camera-notice" id="camera-notice" style="display: none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION (DETERMINED & CATEGORIZED) -->
+    <section class="section-container" id="gallery-section">
+      <div class="section-tag">Captured Memories</div>
+      <h2 class="section-title">Moments of Ryza & Us 📸</h2>
+      <p class="section-subtitle">
+        Every snapshot tells a chapter of our story. Explore solo portraits of the birthday girl and our sweetest memories together.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filters" role="tablist">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+          <span>✨ All Photos</span>
+          <span class="count-badge" id="count-all">19</span>
+        </button>
+        <button class="filter-tab" data-filter="her" role="tab" aria-selected="false">
+          <span>👑 Ryza (Just Her)</span>
+          <span class="count-badge" id="count-her">9</span>
+        </button>
+        <button class="filter-tab" data-filter="both" role="tab" aria-selected="false">
+          <span>💑 Both of Us</span>
+          <span class="count-badge" id="count-both">10</span>
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="photos-grid" id="photos-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- "LITTLE THINGS I LOVE ABOUT YOU" SECTION -->
+    <section class="section-container" id="reasons-section">
+      <div class="section-tag">Reasons My Heart Chose You</div>
+      <h2 class="section-title">Why I Adore You, Ryza 💜</h2>
+
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-icon">🌸</div>
+          <h3>Your Radiant Smile</h3>
+          <p>The way your eyes crinkle with pure happiness. Whenever you smile at me, all the stress in the world just melts away.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon">✨</div>
+          <h3>Your Kind & Gentle Heart</h3>
+          <p>You have the most tender, thoughtful soul. The genuine compassion and love you share with everyone around you inspires me every day.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon">⚡</div>
+          <h3>Our Goofy Side</h3>
+          <p>From rocking yellow Pikachu ears to laughing at our inside jokes during photo shoots, I can be my truest silly self with you.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon">💎</div>
+          <h3>Breathtaking at 21</h3>
+          <p>Whether you're all dressed up for a special date or chilling casually in a shirt and jeans, you take my breath away every single time.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon">🏡</div>
+          <h3>You Are My Safe Haven</h3>
+          <p>Whenever you lean your head on me, the universe is quiet and complete. With you, Ryza, I am always right where I belong.</p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-icon">🔮</div>
+          <h3>Our Beautiful Future</h3>
+          <p>3 wonderful years together, and I cannot wait for all the adventures, milestones, and birthdays ahead of us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SWEET WISHES GUESTBOOK / NOTE BOARD (Interactive LocalStorage) -->
+    <section class="section-container" id="wishes-board-section">
+      <div class="section-tag">Love Notes</div>
+      <h2 class="section-title">Birthday Wish Wall For Ryza 📝</h2>
+      <p class="section-subtitle">Leave a special birthday note or memory on Ryza's purple sticky board!</p>
+
+      <div class="wish-form-wrapper">
+        <form id="wish-form" class="wish-form">
+          <div class="form-row">
+            <input type="text" id="wish-author" class="form-input" placeholder="Your Name or Nickname (e.g. Your Boyfriend 💜)" required>
+          </div>
+          <div class="form-row">
+            <textarea id="wish-text" class="form-textarea" rows="3" placeholder="Write a sweet birthday wish for Ryza..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span>Post Sweet Wish 💌</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="wishes-wall" id="wishes-wall">
+        <!-- Sticky notes will be rendered here -->
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <div class="footer-heart">💜</div>
+      <p class="footer-quote">"In a sea of people, my eyes will always search for Ryza."</p>
+      <p class="footer-credit">
+        Happy 21st Birthday, <strong>Ryza E. Cariño</strong> • Born <strong>October 5, 2005</strong>
+      </p>
+      <div class="footer-links">
+        <a href="#cake-section">Make another wish</a> • 
+        <a href="#gallery-section">Back to photos</a> • 
+        <button class="text-link-btn" id="confetti-boost-btn">Shower Confetti 🎊</button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR PHOTOS -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-hidden="true">
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close photo preview">&times;</button>
+      
+      <div class="lightbox-image-wrap">
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+        <button class="lightbox-nav nav-prev" id="lightbox-prev" aria-label="Previous photo">&#10094;</button>
+        <button class="lightbox-nav nav-next" id="lightbox-next" aria-label="Next photo">&#10095;</button>
+      </div>
+
+      <div class="lightbox-details">
+        <div class="lightbox-badge-row">
+          <span class="category-tag" id="lightbox-tag">Tag</span>
+          <span class="lightbox-index" id="lightbox-counter">1 / 19</span>
+        </div>
+        <h4 class="lightbox-title" id="lightbox-title">Photo Title</h4>
+        <p class="lightbox-caption" id="lightbox-caption">Photo Caption</p>
+        <button class="btn btn-small btn-outline lightbox-heart-btn" id="lightbox-heart-btn">
+          <span class="heart-icon">💜</span> <span id="lightbox-heart-count">Loved</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Camera Flash Overlay Effect -->
+  <div class="camera-flash-overlay" id="camera-flash-overlay"></div>
+
+  <!-- Secret Smile Message Modal -->
+  <div class="secret-modal" id="secret-message-modal" role="dialog" aria-hidden="true">
+    <div class="secret-modal-overlay" id="secret-modal-overlay"></div>
+    <div class="secret-modal-card">
+      <button class="secret-modal-close" id="secret-modal-close" aria-label="Close message">&times;</button>
+      
+      <div class="secret-modal-header">
+        <div class="secret-sparkle-badge">💜 ✨ 📸</div>
+        <h3 class="secret-modal-title">You Smiled, My Beautiful Ryza!</h3>
+        <p class="secret-modal-subtitle">Captured that radiant smile! Here is your special birthday surprise:</p>
+      </div>
+
+      <div class="secret-message-box">
+        <div class="quote-mark quote-start">“</div>
+        <p class="secret-message-text" id="secret-message-content">Hi baby happy happy birthday sayo, I hope maenjoy mo yung araw na to kasi it is your day eh. Wish ko lang para sayo is lagi kang maging masaya at maayos sa lahat ng bagay and sana lagi mong makuha lahat ng gusto mo mapa materyal man yan o hindi. Sana maging malusog ka sa para di ka magkasakit pero syempre lagi mo aalagaan ang health mo kasi yun yung pinaka mahalaga. Sana marating natin lahat ng mga pangarap natin sa buhay. Sorry if minsan ang cruel ko sayo pero sana maintindihan mo na mahal na mahal kita palagi. Happy birthday babyy ko!!!&lt;3</p>
+        <div class="quote-mark quote-end">”</div>
+      </div>
+
+      <div class="secret-modal-footer">
+        <button class="btn btn-primary" id="secret-copy-btn">
+          <span>Copy Message 📋</span>
+        </button>
+        <button class="btn btn-secondary" id="secret-confetti-btn">
+          <span>Shower Confetti 🎊</span>
+        </button>
+        <button class="btn btn-outline" id="secret-close-btn">
+          <span>Keep Smiling 💜</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Face API for real-time smile detection (Local bundle with CDN fallback) -->
+  <script src="lib/face-api.min.js"></script>
+  <script>
+    if (typeof faceapi === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"><\/script>');
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

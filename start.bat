@@ -1,0 +1,6 @@
+@echo off
+title Ryza's 21st Birthday Website
+echo Starting Ryza's Birthday Website...
+echo Opening in your browser with full camera and audio support...
+node server.js
+pause
