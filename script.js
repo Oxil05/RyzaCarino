@@ -185,6 +185,7 @@ const PHOTOS = [
 
 // --- INITIALIZATION ---
 document.addEventListener("DOMContentLoaded", () => {
+  initMidnightGate();
   initBackgroundCanvas();
   initCountdown();
   initLoveLetter();
@@ -1262,4 +1263,225 @@ function initSmileCamera() {
     });
   }
 }
+
+/* ==========================================================
+   12. MIDNIGHT COUNTDOWN GATE & BOYFRIEND SECRET ACCESS
+   Locks the full website until 12:00 Midnight on October 5, 2026.
+   Includes secret bypass triggers for testing:
+   - URL: ?preview=true or #preview
+   - Passcode modal: 1005 or ryza
+   - Keyboard: type "1005" or press Ctrl+Shift+U
+   - Secret lock icon / triple-tap bottom hint
+   ========================================================== */
+function initMidnightGate() {
+  const gate = document.getElementById("midnight-lock-screen");
+  if (!gate) return;
+
+  const lockHours = document.getElementById("lock-hours");
+  const lockMins = document.getElementById("lock-mins");
+  const lockSecs = document.getElementById("lock-secs");
+  const lockSymbol = document.getElementById("lock-main-symbol");
+  const lockBadgeText = document.getElementById("lock-badge-text");
+  const lockTitle = document.getElementById("lock-title-heading");
+  const lockDesc = document.getElementById("lock-desc-text");
+  const lockTeaser = document.getElementById("lock-teaser-text");
+  const unlockedAction = document.getElementById("lock-unlocked-action");
+  const enterBtn = document.getElementById("enter-site-btn");
+
+  const secretTrigger = document.getElementById("secret-gate-trigger");
+  const tripleTap = document.getElementById("lock-triple-tap");
+  const bypassModal = document.getElementById("bypass-modal");
+  const bypassForm = document.getElementById("bypass-form");
+  const bypassInput = document.getElementById("bypass-passcode");
+  const bypassError = document.getElementById("bypass-error");
+  const bypassClose = document.getElementById("bypass-close-btn");
+  const bypassCancel = document.getElementById("bypass-cancel-btn");
+  const previewPill = document.getElementById("preview-mode-pill");
+  const relockBtn = document.getElementById("relock-btn");
+
+  let isUnlocked = false;
+  let timerInterval = null;
+
+  // 1. Check if boyfriend bypass is requested or stored
+  const urlParams = new URLSearchParams(window.location.search);
+  const hasUrlBypass = urlParams.has("preview") || urlParams.has("bypass") || urlParams.has("test") || window.location.hash.toLowerCase().includes("preview");
+  const isSessionUnlocked = sessionStorage.getItem("birthday_preview_unlocked") === "true";
+
+  if (hasUrlBypass || isSessionUnlocked) {
+    sessionStorage.setItem("birthday_preview_unlocked", "true");
+    unlockGate(true); // Instant unlock without transition
+    if (previewPill) previewPill.style.display = "flex";
+    return;
+  }
+
+  // 2. Midnight Target: October 5, 2026, 00:00:00 local time
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const targetMidnight = new Date(currentYear, 9, 5, 0, 0, 0);
+
+  // If already October 5 or past midnight
+  const isAlreadyOctober5 = (now.getMonth() === 9 && now.getDate() >= 5) || (now >= targetMidnight);
+  if (isAlreadyOctober5) {
+    unlockGate(true);
+    return;
+  }
+
+  // 3. Otherwise: Lock the screen & prevent scroll
+  document.body.style.overflow = "hidden";
+
+  function updateMidnightTimer() {
+    if (isUnlocked) return;
+
+    const currentTime = new Date();
+    const diff = targetMidnight - currentTime;
+
+    if (diff <= 0) {
+      // Midnight just arrived!
+      if (timerInterval) clearInterval(timerInterval);
+      onMidnightArrived();
+      return;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    if (lockHours) lockHours.textContent = String(hours).padStart(2, "0");
+    if (lockMins) lockMins.textContent = String(mins).padStart(2, "0");
+    if (lockSecs) lockSecs.textContent = String(secs).padStart(2, "0");
+  }
+
+  updateMidnightTimer();
+  timerInterval = setInterval(updateMidnightTimer, 1000);
+
+  function onMidnightArrived() {
+    if (lockHours) lockHours.textContent = "00";
+    if (lockMins) lockMins.textContent = "00";
+    if (lockSecs) lockSecs.textContent = "00";
+
+    if (lockSymbol) lockSymbol.textContent = "🎂";
+    if (lockBadgeText) lockBadgeText.textContent = "🎉 IT IS OFFICIALLY MIDNIGHT! 💜";
+    if (lockTitle) lockTitle.innerHTML = 'Happy 21st Birthday, <br><span class="gradient-text">Ryza Cariño</span>! 💜';
+    if (lockDesc) lockDesc.textContent = "The wait is over! Your special birthday website is officially ready for you!";
+    if (lockTeaser) lockTeaser.textContent = "✨ Welcome to your 21st birthday celebration! ✨";
+
+    if (unlockedAction) unlockedAction.style.display = "block";
+
+    playFanfareSound();
+    triggerConfetti(120);
+  }
+
+  function unlockGate(instant = false) {
+    isUnlocked = true;
+    if (timerInterval) clearInterval(timerInterval);
+
+    if (instant) {
+      gate.style.display = "none";
+      document.body.style.overflow = "";
+    } else {
+      gate.classList.add("unlocked");
+      document.body.style.overflow = "";
+      setTimeout(() => {
+        gate.style.display = "none";
+      }, 850);
+      playFanfareSound();
+      triggerConfetti(90);
+    }
+  }
+
+  if (enterBtn) {
+    enterBtn.addEventListener("click", () => unlockGate(false));
+  }
+
+  // 4. Secret Boyfriend Bypass Triggers
+  function openBypassModal() {
+    if (bypassModal) {
+      bypassModal.style.display = "flex";
+      if (bypassInput) {
+        bypassInput.value = "";
+        bypassInput.focus();
+      }
+      if (bypassError) bypassError.style.display = "none";
+    }
+  }
+
+  function closeBypassModal() {
+    if (bypassModal) bypassModal.style.display = "none";
+  }
+
+  if (secretTrigger) secretTrigger.addEventListener("click", openBypassModal);
+  if (bypassClose) bypassClose.addEventListener("click", closeBypassModal);
+  if (bypassCancel) bypassCancel.addEventListener("click", closeBypassModal);
+
+  // Triple-tap bottom text for secret access
+  if (tripleTap) {
+    let tapCount = 0;
+    tripleTap.addEventListener("click", () => {
+      tapCount++;
+      if (tapCount >= 3) {
+        tapCount = 0;
+        openBypassModal();
+      }
+      setTimeout(() => { tapCount = 0; }, 1500);
+    });
+  }
+
+  // Passcode verification
+  if (bypassForm) {
+    bypassForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const code = (bypassInput.value || "").trim().toLowerCase();
+      const validCodes = ["1005", "ryza", "carino", "cariño", "2005", "love", "admin", "secret"];
+
+      if (validCodes.includes(code)) {
+        sessionStorage.setItem("birthday_preview_unlocked", "true");
+        closeBypassModal();
+        unlockGate(false);
+        if (previewPill) previewPill.style.display = "flex";
+      } else {
+        if (bypassError) {
+          bypassError.style.display = "block";
+          bypassInput.classList.add("input-error");
+          setTimeout(() => bypassInput.classList.remove("input-error"), 800);
+        }
+      }
+    });
+  }
+
+  // Keyboard shortcut: Ctrl + Shift + U or typing "1005"
+  let typedBuffer = "";
+  window.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "u") {
+      e.preventDefault();
+      openBypassModal();
+      return;
+    }
+
+    if (e.key && e.key.length === 1) {
+      typedBuffer += e.key.toLowerCase();
+      if (typedBuffer.length > 8) typedBuffer = typedBuffer.slice(-8);
+
+      if (typedBuffer.includes("1005") || typedBuffer.includes("ryza")) {
+        sessionStorage.setItem("birthday_preview_unlocked", "true");
+        closeBypassModal();
+        unlockGate(false);
+        if (previewPill) previewPill.style.display = "flex";
+        typedBuffer = "";
+      }
+    }
+  });
+
+  // Relock button in preview mode
+  if (relockBtn) {
+    relockBtn.addEventListener("click", () => {
+      sessionStorage.removeItem("birthday_preview_unlocked");
+      if (window.location.search || window.location.hash) {
+        window.location.href = window.location.pathname;
+      } else {
+        window.location.reload();
+      }
+    });
+  }
+}
+
 

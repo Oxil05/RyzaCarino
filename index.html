@@ -17,6 +17,95 @@
 </head>
 <body>
 
+  <!-- Floating Boyfriend Preview Mode Pill (Visible only when unlocked via secret bypass) -->
+  <div class="preview-mode-pill" id="preview-mode-pill" style="display: none;">
+    <span>⚡ Boyfriend Preview Active</span>
+    <button id="relock-btn" class="relock-btn" title="Relock screen to test countdown">Relock 🔒</button>
+  </div>
+
+  <!-- MIDNIGHT COUNTDOWN LOCK SCREEN -->
+  <div id="midnight-lock-screen" class="midnight-lock-screen" role="dialog" aria-modal="true">
+    <div class="lock-stars-bg"></div>
+    
+    <!-- Secret Boyfriend Trigger in top corner -->
+    <button class="secret-gate-trigger" id="secret-gate-trigger" title="Secret Access" aria-label="Secret Access">
+      <span>🔒</span>
+    </button>
+
+    <div class="lock-card">
+      <div class="lock-icon-wrapper">
+        <div class="lock-ring"></div>
+        <span class="lock-symbol" id="lock-main-symbol">⏳</span>
+      </div>
+
+      <div class="lock-badge">
+        <span class="badge-sparkle">✨</span>
+        <span id="lock-badge-text">A Secret Birthday Surprise is Waiting</span>
+        <span class="badge-sparkle">✨</span>
+      </div>
+
+      <h1 class="lock-title" id="lock-title-heading">
+        Almost Midnight, <br>
+        <span class="gradient-text">Ryza Cariño</span> 💜
+      </h1>
+
+      <p class="lock-desc" id="lock-desc-text">
+        A special birthday world is being prepared just for you. The gates will officially unlock right at <strong>12:00 Midnight</strong> on <strong>October 5, 2026</strong>!
+      </p>
+
+      <!-- Live Midnight Countdown Grid -->
+      <div class="lock-timer-grid" id="lock-timer-grid">
+        <div class="lock-time-box">
+          <span class="lock-time-val" id="lock-hours">00</span>
+          <span class="lock-time-lbl">Hours</span>
+        </div>
+        <span class="lock-colon">:</span>
+        <div class="lock-time-box">
+          <span class="lock-time-val" id="lock-mins">00</span>
+          <span class="lock-time-lbl">Minutes</span>
+        </div>
+        <span class="lock-colon">:</span>
+        <div class="lock-time-box">
+          <span class="lock-time-val" id="lock-secs">00</span>
+          <span class="lock-time-lbl">Seconds</span>
+        </div>
+      </div>
+
+      <p class="lock-teaser" id="lock-teaser-text">
+        "Count every second with me... Something full of love is waiting on the other side! 🌸"
+      </p>
+
+      <!-- Entrance Button (Appears when midnight strikes) -->
+      <div class="lock-unlocked-action" id="lock-unlocked-action" style="display: none;">
+        <button class="btn btn-primary btn-enter-site" id="enter-site-btn">
+          <span>✨ Step Into Your Birthday World, Ryza! 💜 ✨</span>
+        </button>
+      </div>
+
+      <div class="lock-footer-hint" id="lock-triple-tap" title="Triple tap for secret access">
+        <span>✨ Made with all my love for Ryza Cariño • October 5, 2005 ✨</span>
+      </div>
+    </div>
+
+    <!-- Secret Bypass Modal for Boyfriend Testing -->
+    <div class="bypass-modal" id="bypass-modal" style="display: none;">
+      <div class="bypass-card">
+        <button class="bypass-close" id="bypass-close-btn">&times;</button>
+        <div class="bypass-icon">🗝️</div>
+        <h3>Boyfriend Secret Access</h3>
+        <p>Enter the birthday passcode to preview the full website right now:</p>
+        <form id="bypass-form">
+          <input type="password" id="bypass-passcode" class="form-input" placeholder="Enter code (1005 or ryza)" autocomplete="off">
+          <div class="bypass-buttons">
+            <button type="submit" class="btn btn-small btn-primary">Unlock Preview 🚀</button>
+            <button type="button" class="btn btn-small btn-outline" id="bypass-cancel-btn">Cancel</button>
+          </div>
+        </form>
+        <p class="bypass-error" id="bypass-error" style="display: none;">Incorrect passcode! Try 1005 or ryza 😊</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Background Animated Canvas (Hearts, Sparkles, Purple Bokeh) -->
   <canvas id="bg-canvas"></canvas>
 
